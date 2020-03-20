@@ -4,24 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import Molina.Gabriel.myapplication.R
-import Molina.Gabriel.myapplication.ui.agenda
 import android.content.Context
-import android.content.Intent
 import android.widget.BaseAdapter
 import kotlinx.android.synthetic.main.board.view.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
 
+    var adapter: agendaAdapter? = null
     private lateinit var homeViewModel: HomeViewModel
 
-    var adapter: agendaAdapter? = null
-    var agenda = ArrayList<agenda>()
+
+    companion object{
+        var agenda = ArrayList<agenda>()
+        var first = true
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +34,11 @@ class HomeFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_home, container, false)
 
 
-        cargarAgenda()
+        if (first){
+            cargarAgenda()
+            first = false
+        }
+
 
         adapter = agendaAdapter(root.context, agenda)
 
@@ -43,16 +48,71 @@ class HomeFragment : Fragment() {
     }
 
     fun cargarAgenda(){
-        //Cargar películas
-       agenda.add(agenda("Practica", "Everyday", "17:30"))
-       agenda.add(agenda("Practica", "Everyday", "17:30"))
-       agenda.add(agenda("Practica", "Everyday", "17:30"))
-       agenda.add(agenda("Practica", "Everyday", "17:30"))
-       agenda.add(agenda("Practica", "Everyday", "17:30"))
-       agenda.add(agenda("Practica", "Everyday", "17:30"))
-       agenda.add(agenda("Practica", "Everyday", "17:30"))
-       agenda.add(agenda("Practica", "Everyday", "17:30"))
-       agenda.add(agenda("Practica", "Everyday", "17:30"))
+        //Cargar
+       agenda.add(
+           agenda(
+               "Practica",
+               arrayListOf("Everyday"),
+               "17:30"
+           )
+       )
+       agenda.add(
+           agenda(
+               "Practica",
+               arrayListOf("Everyday"),
+               "17:30"
+           )
+       )
+       agenda.add(
+           agenda(
+               "Practica",
+               arrayListOf("Everyday"),
+               "17:30"
+           )
+       )
+       agenda.add(
+           agenda(
+               "Practica",
+               arrayListOf("Everyday"),
+               "17:30"
+           )
+       )
+       agenda.add(
+           agenda(
+               "Practica",
+               arrayListOf("Everyday"),
+               "17:30"
+           )
+       )
+       agenda.add(
+           agenda(
+               "Practica",
+               arrayListOf("Everyday"),
+               "17:30"
+           )
+       )
+       agenda.add(
+           agenda(
+               "Practica",
+               arrayListOf("Everyday"),
+               "17:30"
+           )
+       )
+       agenda.add(
+           agenda(
+               "Practica",
+               arrayListOf("Everyday"),
+               "17:30"
+           )
+       )
+       agenda.add(
+           agenda(
+               "Practica",
+               arrayListOf("Everyday"),
+               "17:30"
+           )
+       )
+
     }
 
     class agendaAdapter: BaseAdapter {
@@ -66,10 +126,10 @@ class HomeFragment : Fragment() {
 
         override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
             var agenda = agenda[p0]
-            var inflator = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as  LayoutInflater
+            var inflator = LayoutInflater.from(context)
             var vista = inflator.inflate(R.layout.board, null)
             vista.tv_actividad.setText(agenda.actividad)
-            vista.tv_days.setText(agenda.dias)
+            vista.tv_days.setText(agenda.dias.toString())
             vista.tv_hours.setText(agenda.hora)
 
             return vista

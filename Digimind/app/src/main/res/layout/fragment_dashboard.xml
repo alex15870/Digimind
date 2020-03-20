@@ -47,6 +47,7 @@
                 android:text="Monday"/>
 
             <CheckBox
+                android:id="@+id/monday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
@@ -64,6 +65,7 @@
                 android:text="Tuesday"/>
 
             <CheckBox
+                android:id="@+id/tuesday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
@@ -81,6 +83,7 @@
                 android:text="Wednesday"/>
 
             <CheckBox
+                android:id="@+id/wednesday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
@@ -98,6 +101,7 @@
                 android:text="Thursday"/>
 
             <CheckBox
+                android:id="@+id/thurday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
@@ -115,6 +119,7 @@
                 android:text="Friday"/>
 
             <CheckBox
+                android:id="@+id/friday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
@@ -132,6 +137,7 @@
                 android:text="Saturday"/>
 
             <CheckBox
+                android:id="@+id/saturday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
@@ -149,6 +155,7 @@
                 android:text="Sunday"/>
 
             <CheckBox
+                android:id="@+id/sunday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"/>
@@ -165,8 +172,19 @@
         android:textColor="@color/colorAccent"/>
 
     <Button
+        android:id="@+id/btn_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Set hour"/>
+
+    <Button
+        android:id="@+id/btn_done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/colorAccent"
+        android:textColor="#FFFFFF"
+        android:text="Done"/>
+
 
 </LinearLayout>
